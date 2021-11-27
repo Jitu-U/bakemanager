@@ -1,0 +1,55 @@
+.home{
+    justify-content: center;
+    display: block;
+    background-color: #d42814;
+}
+
+.home-header{
+    overflow: hidden;
+    position: fixed;
+    background-color: white;
+    height: 150px;
+}
+
+
+.order-mobile{
+    visibility: hidden;
+    bottom:20px;
+    right:20px;
+    position: fixed;
+}
+
+@media screen and (max-width: 600px) {
+   .order-mobile{
+       visibility: visible;
+   }
+}
+
+.order-mobile button{
+    padding: 10px;
+    font-size: larger;
+    font-weight: bold;
+    border: 1px solid rgba(0,0,0,0.16);
+    border-radius: 5px;
+    color: white;
+    background-color: #d42814;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+}
+
+.menu-container{
+    bottom: 10px;
+    width: 100vw;
+    position: fixed;
+    height: 80vh;
+    overflow: scroll;
+    background-color: white;
+    align-items: center;
+    margin-left: 2vw;
+}
+
+.menu-q{
+    font-family: semplicitapro,sans-serif;
+    font-weight: 700;
+    font-size: large;
+    margin: 30px 0px 30px 0px;
+}

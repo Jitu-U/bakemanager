@@ -1,0 +1,26 @@
+.navbar{
+    height: auto;
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #d42814 ;
+    color: white;
+    cursor:default;
+    margin: auto;
+    z-index: 1;
+}
+
+
+
+
+.navbar .logo{
+    height: 52px;
+    width: 52px;
+}
+
+.navbar .logo-name{
+    font-size:x-large;
+    font-weight: 500;
+    margin-left: 20px;
+}

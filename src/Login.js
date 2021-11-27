@@ -78,6 +78,10 @@ export default function Login() {
     return (
         <section className="login">
         <div className="login-container">
+        <img src={ require('./Images/bake.png') } className="logo" />
+            <div className="login-title">
+               Welcome !
+            </div>
            <div>
                 <label>Email</label>
                 <input type="text" 
@@ -109,19 +113,21 @@ export default function Login() {
                         <button onClick={handleLogin}>
                             Sign In
                         </button>
-                        <p>don't have an account? <span onClick={() => setHasAccount(!hasAccount)}>sign up</span></p>
+                        <p>Don't have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>
                         </>
                     ) : (
                         <>
                         <button onClick={handleSignup}>
-                            Signup
+                            Sign up
                         </button>
-                        <p>have an account? <span onClick={() => setHasAccount(!hasAccount)}>sign in</span></p>
+                        <p>Have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign in</span></p>
                         </>
                     )
                 }
             </div>
+            
         </div>
+        
         </section>
     )
 }

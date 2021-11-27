@@ -1,0 +1,14 @@
+.card-container{
+    width: 415px;
+height: 215px;
+border-radius: 11px;
+background: #fff;
+border: 1px solid rgba(112, 112, 112, 0.25);
+ display: flex;
+}
+
+.card-container .left-sec{
+    padding: 10px;
+    background-color: red;
+    display: block;
+}
