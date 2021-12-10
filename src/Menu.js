@@ -42,7 +42,7 @@ getDownloadURL(storageRef)
 
     return (
         <div className="menu">
-           <MenuCard name="Ham Burger" imgurl='./Images/bake.jpg'/>
+           <MenuCard name="Ham Burger" />
            <MenuCard name="Ham Burger"/>
            <MenuCard name="Ham Burger"/>
            <MenuCard name="Ham Burger"/>

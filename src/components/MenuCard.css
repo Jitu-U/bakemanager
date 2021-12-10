@@ -9,6 +9,129 @@ border: 1px solid rgba(112, 112, 112, 0.25);
 
 .card-container .left-sec{
     padding: 10px;
-    background-color: red;
+   /* background-color: red; */
     display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15.5px 40px 15.5px;
+}
+
+.dish-img{
+    width: 156px;
+height: 135px;
+border-radius: 10px;
+/* background: url(...); */
+border: 1px solid rgba(0,0,0,0.3);
+overflow:  hidden;
+
+}
+
+.dish-img img{
+    width: inherit;
+    height: inherit;   
+}
+
+.mid-sec{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+    /*justify-content: space-around;*/
+}
+
+.mid-sec .dish-title{
+    font-family: semplicitapro,sans-serif;
+    font-weight: bold;
+    font-size: 21px;
+    text-align: left;
+    color: #000;
+}
+
+.mid-sec .-down-sec .-des-sec{
+    width: 150px;
+}
+
+.mid-sec .-down-sec{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.mid-sec .-down-sec .-des-sec .des{
+    height: 99px;
+   /* border: 1px solid #000000; */
+    overflow:scroll;
+    font-family: Helvetica;
+font-weight: normal;
+font-size: 15px;
+text-align: left;
+color: rgba(75, 74, 74, 0.67);
+}
+
+.form-sec{
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.form-sec input{
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #000;
+    width: 20px;
+    outline: none;
+    border: 1px solid rgba(112, 112, 112, 0.28);
+}
+
+.order-value{
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 65px;
+    border-radius: 5px;
+    background: #fff;
+    border: 0.3px solid rgba(112, 112, 112, 0.28);
+    align-items: center;
+    margin-left: 15px;
+
+}
+
+.add-btn{
+    width: 63px;
+    height: 29px;
+    border-radius: 4px;
+    background: #d42814;
+    border: 1px solid rgba(112, 112, 112, 0.28);
+   /* box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.16); */
+    font-family: "Semplicita Pro",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+    cursor: pointer;
+
+}
+
+
+@media (hover: hover) {
+    .add-btn:hover { box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16); }
+  }
+    
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
