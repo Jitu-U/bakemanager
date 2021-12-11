@@ -35,14 +35,17 @@ function MenuCard(props) {
                 <div className='-down-sec'>
                     <div className='-des-sec'>
                         <div className='des'>
-                        Cottage cheese slices marinated with barbeque seasoning and roasted to a light crispness.
+                        {props.description}
+                        </div>
+                        <div className='price'>
+                            {props.price} Rs.
                         </div>
                     </div>
                     <div className='form-sec'>
                         <div className='order-value'>
-                            <IoIosArrowUp size={21} onClick={handleUp}/>
+                            <IoIosArrowUp size={21} onClick={handleUp} className='cntrl-icon'/>
                             <input type={'number'} value={val} min={0} name="quantity" pattern={"\d{2}"} ></input>
-                            <IoIosArrowDown size={21} onClick={handleDown}/>
+                            <IoIosArrowDown size={21} onClick={handleDown} className='cntrl-icon'/>
                         </div>
                         <button className='add-btn'> Add</button>
                     </div>

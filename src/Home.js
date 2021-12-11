@@ -28,7 +28,9 @@ export default function Home() {
                      What are we having Today ?
                  </div>
                 <Menu/>
-                <div style={{height:"2000px"}}></div>
+                <div className='info-bottom'>
+                  Bakedonald's™ foods, since 2020
+                </div>
              </div>
             
             <div className="order-mobile">

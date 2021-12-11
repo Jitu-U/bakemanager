@@ -1,63 +1,51 @@
 import './Menu.css'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import MenuCard from './components/MenuCard'
-import { ref, getDownloadURL,getStorage } from "firebase/storage";
-//import { storage } from './firebase'
+import {  getDocs,getFirestore,query,collection } from "firebase/firestore";
+import { firebase } from './firebase';
 
+  
 
-export default function Menu() {
+export default  function Menu() {
+  const db = getFirestore(firebase);
+  const items = [];
+  const [menu, setMenu] = useState([])
+  
+  
+  
 
-    const storage = getStorage();
-const storageRef = ref(storage,'dish-images/burger.jpg');
-const imsrc = '';
+  useEffect(() => {
+    async function readAll(){
+      const firestore = getFirestore()
+      const collectionRef = collection(firestore, '/menu')
+      let q = query(collectionRef);
+      const querySnapshot = await getDocs(query(collection(firestore, '/menu')))
+      
+      querySnapshot.forEach(document => {
+         items.push(document.data());
+      })
+      setMenu(items);
 
-getDownloadURL(storageRef)
-  .then((url) => {
-     imsrc = url;
-  })
-  .catch((error) => {
-    // A full list of error codes is available at
-    // https://firebase.google.com/docs/storage/web/handle-errors
-    switch (error.code) {
-      case 'storage/object-not-found':
-        // File doesn't exist
-        break;
-      case 'storage/unauthorized':
-        // User doesn't have permission to access the object
-        break;
-      case 'storage/canceled':
-        // User canceled the upload
-        break;
-
-      // ...
-
-      case 'storage/unknown':
-        // Unknown error occurred, inspect the server response
-        break;
+      console.log();
     }
-  });
-
+   readAll();
+   
+  },[]);
 
 
 
     return (
         <div className="menu">
-           <MenuCard name="Ham Burger" />
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
-           <MenuCard name="Ham Burger"/>
+           
+          {
+            menu.map( item => {
+              return (
+                <MenuCard name={item.name} id={item.name} description={item.description} price={item.price}/>
+              )
+            })
+             
+          }
+          
         </div>
     )
 }

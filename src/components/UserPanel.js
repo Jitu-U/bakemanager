@@ -10,7 +10,8 @@ export default function UserPanel(props) {
             <div className="user-bar">
                 <div className="wlcm">{props.msg}</div>
                 <div className="order-icon">
-                    <button>Your Order</button>
+                    <button className='order-btn'>Your Order</button>
+                    <button className='logout-btn' >Log out</button>
                 </div>
             </div>
         ) : (
