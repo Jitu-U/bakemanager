@@ -20,22 +20,22 @@ export default function UserPanel(props) {
 
     const navigate = useNavigate();
     return (
-        (getAuth ? (
+        (getAuth().currentUser ? (
             <div className="user-bar">
-                <div className="wlcm">{props.msg}</div>
+                <div className="wlcm">Welcome &nbsp;{getAuth().currentUser.email}</div>
                 <div className="order-icon">
                     <button className='order-btn'>Your Order</button>
-                    {
-                        getAuth().currentUser ? <button className='logout-btn' onClick={handleLogout}>Log out</button> : <button className='logout-btn'  onClick={()=>{ navigate('/login')}}>Log in</button>
-                    }
-                    
+                        <button className='logout-btn' onClick={handleLogout}>Log out</button>
                 </div>
             </div>
         ) : (
             <>
                 <div className="user-bar">
-                <div className="wlcm">Welcome Jitesh...
-                What are we having today</div>
+                <div className="wlcm">Welcome Newbie</div>
+                <div className="order-icon">
+                    <button className='order-btn'>Your Order</button>
+                        <button className='logout-btn' onClick={()=>{ navigate('/login')}}>Login</button>
+                </div>
                 </div>
             </>
         ))

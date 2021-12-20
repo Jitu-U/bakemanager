@@ -7,9 +7,10 @@ import { firebase } from './firebase';
   
 
 export default  function Menu() {
-  const db = getFirestore(firebase);
+ 
   const items = [];
   const [menu, setMenu] = useState([])
+  
   
   
   
@@ -40,7 +41,7 @@ export default  function Menu() {
           {
             menu.map( item => {
               return (
-                <MenuCard name={item.name} id={item.name} description={item.description} price={item.price}/>
+                <MenuCard name={item.name} id={item.name} description={item.description} price={item.price} imageUrl={item['image url']}/>
               )
             })
              

@@ -27,7 +27,7 @@ function MenuCard(props) {
             <div className="left-sec">
             
             <div className="dish-img" >
-                <img  alt="Lol" src="https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl.jpg" ></img>
+                <img  alt={props.name} src={props.imageUrl} ></img>
             </div>
             </div>
             <div className="mid-sec">
