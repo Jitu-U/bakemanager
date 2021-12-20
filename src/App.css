@@ -45,3 +45,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.bg{
+  background-color: white;
+  animation: lol 4000ms;
+}
+
+@keyframes lol {
+  0%   {background-color: rgb(255, 255, 255);}
+  25%  {background-color: rgb(255, 225, 225);}
+  50%  {background-color: rgb(255, 255, 255);}
+  100% {background-color: rgba(240, 240, 240, 0.178);}
+}

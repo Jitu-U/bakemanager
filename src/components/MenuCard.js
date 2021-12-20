@@ -44,7 +44,7 @@ function MenuCard(props) {
                     <div className='form-sec'>
                         <div className='order-value'>
                             <IoIosArrowUp size={21} onClick={handleUp} className='cntrl-icon'/>
-                            <input type={'number'} value={val} min={0} name="quantity" pattern={"\d{2}"} ></input>
+                            <input type={'number'} value={val} min={0} name="quantity" pattern={"{2}"} ></input>
                             <IoIosArrowDown size={21} onClick={handleDown} className='cntrl-icon'/>
                         </div>
                         <button className='add-btn'> Add</button>

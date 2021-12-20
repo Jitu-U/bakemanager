@@ -1,10 +1,18 @@
 import React, { useState,useEffect }from 'react'
-import firebase from './firebase'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, RecaptchaVerifier } from "firebase/auth";
 import './Login.css'
+import 'firebase/firestore'
+import firebase from './firebase'
 
+
+
+
+getAuth().languageCode = 'it';
 
 export default function Login() {
+
+
+    window.recaptchaVerifier = 0;
 
     const [user, setUser] = useState("");
     const [email, setEmail] = useState("");
@@ -42,7 +50,9 @@ export default function Login() {
 
     const handleSignup = () => {
         clearErrors();
-        createUserWithEmailAndPassword(getAuth(),email,password)
+        createUserWithEmailAndPassword(getAuth(),email,password).then(
+            
+        )
         .catch((err) => {
             switch(err.code){
                 case "auth/email-already-in-use":
@@ -56,9 +66,7 @@ export default function Login() {
         });
     }
 
-    const handleLogout = () => {
-        getAuth().signOut();
-    }
+    
 
     const authListener = () => {
         onAuthStateChanged(user => {
