@@ -1,4 +1,5 @@
 import React, { useState,useEffect }from 'react'
+import { useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, RecaptchaVerifier } from "firebase/auth";
 import './Login.css'
 import 'firebase/firestore'
@@ -19,7 +20,9 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const [hasAccount, setHasAccount] = useState("");
+    const [hasAccount, setHasAccount] = useState(true);
+
+    const navigate = useNavigate();
 
     const clearInputs = () => {
         setEmail('');
@@ -33,16 +36,23 @@ export default function Login() {
 
     const handleLogin = () => {
         clearErrors();
-        signInWithEmailAndPassword(getAuth(),email,password)
+        signInWithEmailAndPassword(getAuth(),email,password).then( () => {
+            navigate('/home');
+        }
+        )
         .catch((err) => {
             switch(err.code){
                 case "auth/invalid-email":
+                    setEmailError('invalid email');
+                    break;
                 case "auth/user-disabled":
+                    setEmailError('your account is disabled');
+                    break;
                 case "auth/user-not-found":
-                    setEmailError(err.message);
+                    setEmailError('User not found');
                     break;
                 case "auth/wrong-password":
-                    setPasswordError(err.message);
+                    setPasswordError('Password is wrong. Try again');
                     break;
             }
         });
@@ -51,16 +61,20 @@ export default function Login() {
     const handleSignup = () => {
         clearErrors();
         createUserWithEmailAndPassword(getAuth(),email,password).then(
-            
+            function onSuccess(){
+
+            }
         )
         .catch((err) => {
             switch(err.code){
                 case "auth/email-already-in-use":
+                    setEmailError('Email Already in use');
+                    break;
                 case "auth/invalid-email":
-                    setEmailError(err.message);
+                    setEmailError('Invalid Email');
                     break;
                 case "auth/weak-password":
-                    setPasswordError(err.message);
+                    setPasswordError('Password must be atleast 6 Characters long');
                     break;
             }
         });
