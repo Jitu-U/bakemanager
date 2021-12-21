@@ -8,6 +8,7 @@ import Login from './Login';
 import Home from './Home';
 import { enableIndexedDbPersistence, collection, onSnapshot, query } from "firebase/firestore"; 
 import { db } from './firebase'
+import Join from './join';
  
 
 enableIndexedDbPersistence(db)
@@ -73,6 +74,7 @@ function App() {
         <Route exact path="/" element={<Welcome/>} ></Route>
         <Route path="/home" element ={<Home/>}/>
         <Route path="/login" element={<Login/>} />
+        <Route path="/join" element={<Join/>}/>
       </Routes>
   </>
   );

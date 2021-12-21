@@ -62,7 +62,11 @@ export default function Login() {
         clearErrors();
         createUserWithEmailAndPassword(getAuth(),email,password).then(
             function onSuccess(){
-
+                    navigate('/join',{state:{
+                                            user: user,
+                                            email: email
+                    }}
+                    )
             }
         )
         .catch((err) => {
@@ -83,7 +87,7 @@ export default function Login() {
     
 
     const authListener = () => {
-        onAuthStateChanged(user => {
+        onAuthStateChanged(getAuth(),user => {
             if(user){
                 clearInputs();
                 setUser(user);
@@ -93,9 +97,11 @@ export default function Login() {
         })
     }
 
-    /*useEffect(() => {
+    useEffect(() => {
         authListener();
-    },[])*/
+    },[])
+
+
 
     return (
         <section className="login">
@@ -132,7 +138,7 @@ export default function Login() {
                 {
                     hasAccount ? (
                         <>
-                        <button onClick={handleLogin}>
+                        <button  onClick={handleLogin}>
                             Sign In
                         </button>
                         <p>Don't have an account? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></p>

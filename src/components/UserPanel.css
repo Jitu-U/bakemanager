@@ -71,3 +71,16 @@
     }
   }
 
+  .swal-button {
+    color: white;
+    padding: 7px 19px;
+    border-radius: 2px;
+    background-color: #d42814;
+    font-size: 12px;
+    border: 1px solid #d42814;
+  }
+
+  .swal-button :hover {
+      background-color: #d42814;
+      border: none;
+  }
