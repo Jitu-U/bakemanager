@@ -31,8 +31,12 @@ export default function UserPanel(props) {
 
     useEffect(() => {
         async function getData(){
-           let snap = await getDoc(doc(db,'users',getAuth().currentUser.email));
+           if(getAuth().currentUser) {
+               let snap = await getDoc(doc(db,'users',getAuth().currentUser.email));
             setUser(snap.data());
+        } else {
+            return
+        }
         };
         getData();
     }, [])
